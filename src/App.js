@@ -38,16 +38,42 @@ function Footer(props){
 
 const skill= ["Html","CSS","JavaScript","C","ReactJs"];
 
+function GoodSkills(){
+        return (
+          <section className={"skillres"}>
+            <h2>Result evalution on my skills</h2>
+            <p>Good skills in Web development</p>
+                          
+          </section>);
+}
+function Badskills(){
+  return (
+    <section>
+      <h2>Result evalution on my skills</h2>
+      <p>Skills are not matched with our requirement</p>
+    </section>
+  );
+}
+function Evalution(props){
+  if (props.evalution===true){
+   return(<GoodSkills />);
+  }
+  else{
+    return(<Badskills />);
+  }
+}
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <Header lastName="A" word="Great" />
       <Section name="in building a" skill={skill} />
+        <Evalution evalution />   
       <Footer year={new Date().getFullYear()} />
     </div>
   );
 }
+
 
 
 export default App;

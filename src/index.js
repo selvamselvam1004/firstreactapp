@@ -9,4 +9,4 @@ function AppTwo(){
 
 
 
-ReactDOM.render(<React.Fragment><App /><AppTwo /></React.Fragment>,document.getElementById("root"));
+ReactDOM.render(<div><App evalution={true} /><AppTwo /></div>,document.getElementById("root"));
