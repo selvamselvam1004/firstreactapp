@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import './App.css';
 import logo from './logo.svg';
 
@@ -10,6 +10,9 @@ function Header(props){
     <h2>I am a {props.word} web developer</h2>
 </header>);
 }
+
+
+
 
 function Section(props){
   
@@ -23,6 +26,7 @@ function Section(props){
 
         </ul> 
         <img src={logo} alt="Logo" />
+        
    </section>
 );
 
@@ -37,6 +41,7 @@ function Footer(props){
 }
 
 const skill= ["Html","CSS","JavaScript","C","ReactJs"];
+
 
 function GoodSkills(){
         return (
@@ -64,12 +69,26 @@ function Evalution(props){
 }
 
 function App(props) {
+
+  const [emotion,setemotion]= useState("happy fireiend");
+  const [checked,setChecked]=useState(false);
+
   return (
     <div className="App">
       <Header lastName="A" word="Great" />
       <Section name="in building a" skill={skill} />
         <Evalution evalution />   
       <Footer year={new Date().getFullYear()} />
+      
+      <h1>skill {emotion}</h1>
+        <button onClick={() => setemotion("Good friends")}>view skills</button>
+      
+      <input type="checkbox"
+      value={checked}
+      onChange={()=>setChecked((checked) => !checked)}/>
+
+      <p>{checked ? "checked" : "not checked"}</p>
+
     </div>
   );
 }
